@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oro Ninja</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-3">Oro Ninja</h1>
+        <p class="mb-3">Tu oro: {{ session['gold'] }}</p>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="border p-3">
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="farm" />
+                        <button type="submit" class="btn btn-primary btn-block">¡Encuentra Oro!</button>
+                    </form>
+                    <p class="text-center">10-20 Oro</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="border p-3">
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="cave" />
+                        <button type="submit" class="btn btn-primary btn-block">¡Encuentra Oro!</button>
+                    </form>
+                    <p class="text-center">5-10 Oro</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="border p-3">
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="house" />
+                        <button type="submit" class="btn btn-primary btn-block">¡Encuentra Oro!</button>
+                    </form>
+                    <p class="text-center">2-5 Oro</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="border p-3">
+                    <form action="/process_money" method="post">
+                        <input type="hidden" name="building" value="casino" />
+                        <button type="submit" class="btn btn-primary btn-block">¡Encuentra Oro!</button>
+                    </form>
+                    <p class="text-center">-50 de 50 Oro</p>
+                </div>
+            </div>
+        </div>
+        <div class="border p-3 mt-4">
+            <h2 class="mt-3">Actividades:</h2>
+            <ul>
+                {% for activity in activities %}
+                    <li style="color: {{ activity['color'] }}">{{ activity['message'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
